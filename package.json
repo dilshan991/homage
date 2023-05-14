@@ -4,13 +4,24 @@
   "description": "homage assignment",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cypress open",
+    "clean:reports":"(if exist cypress\\reports (rmdir /Q /S cypress\\reports)) && mkdir cypress\\reports && mkdir cypress\\reports\\mocha  &&  mkdir cypress\\reports\\mochareports",
+    "combine-reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/mochareports/report.json",
+    "generate-report": "npm run combine-reports && marge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports -- inline",
+    "chrome:headless": "npm run clean:reports &&  cypress run -b chrome --headless",
+    "chrome:headed": "npm run clean:reports &&  cypress run -b chrome --headed",
+    "chrome:headed:mobile": "npm run clean:reports &&  cypress run -b chrome --headed --config viewportWidth=375,viewportHeight=667",
+    "edge:headless": "npm run clean:reports &&  cypress run -b edge --headless",
+    "edge:headed": "npm run clean:reports &&  cypress run -b edge --headed",
+    "firefox:headless": "npm run clean:reports &&  cypress run -b firefox --headless",
+    "firefox:headed": "npm run clean:reports &&  cypress run -b firefox --headed"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "cypress": "^12.12.0",
+    "cypress-mochawesome-reporter": "^3.4.0",
     "cypress-multi-reporters": "^1.6.3",
     "cypress-xpath": "^2.0.1",
     "mocha": "^10.2.0",
