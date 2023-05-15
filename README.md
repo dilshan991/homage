@@ -28,11 +28,13 @@ npm run chrome:headed:mobile
 npm run webkit:headed
 ```
 If you need to run tests in mobile devices screen size, execute following command
+```
 npm run chrome:headed:mobile
-
+```
 If you need to tested in the safari browser use the experimental webkit 
+```
 npm run webkit:headed
-
+```
 Execute below mentioned command to generate the HTML report 
 ```
 npm run generate-report
