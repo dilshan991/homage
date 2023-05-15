@@ -2,10 +2,16 @@
 import headerComp from "../src/homage_ApplyPage/HeaderComponentObjects"
 import basicComp from "../src/homage_ApplyPage/BasicComponentObjects"
 import roleComp from "../src/homage_ApplyPage/RoleComponentsObjects"
+import jobOppComp from "../src/homage_ApplyPage/JobOppComponentObjects"
+import engageComp from "../src/homage_ApplyPage/EngagementComponentObjects"
+import backComp from "../src/homage_ApplyPage/BackgroundComponentObjects"
 
 const headerCompObject=new headerComp();
 const basicCompObject=new basicComp();
 const roleCompObject=new roleComp();
+const jobOppCompObject=new jobOppComp();
+const engageCompObject=new engageComp();
+const backCompObject=new backComp();
 
 
 Cypress.Commands.add("ApplyPageHeaderComponentExecutor",()=>{
@@ -37,19 +43,35 @@ Cypress.Commands.add("ApplierEnteringBasicInfo",(firstName,lastName,email,phoneN
 });
 
 
-Cypress.Commands.add("ApplierSelectingBasicAgeAndResidency",()=>{
+Cypress.Commands.add("ApplierSelectingBasicAgeAndResidency",(ageVerify,residencyVerify)=>{
   
-  basicCompObject.GetLegalAgeYesButton().scrollIntoView().should('be.visible').click({force:true});
-  basicCompObject.GetResideSingaYesButton().should('be.visible').click({force:true});
+  basicCompObject.GetLegalAgeButton(ageVerify).scrollIntoView().should('be.visible').click({force:true});
+  basicCompObject.GetResidecyButton(residencyVerify).should('be.visible').click({force:true});
 });
 
-Cypress.Commands.add("ApplierSelectingWhenHavingExperience",()=>{
-  roleCompObject.GetExperienceYesButton().scrollIntoView().should('be.visible').click({force:true});
-  roleCompObject.GetExperienceLess1year().should('be.visible').click({force:true});
-  roleCompObject.GetDoctorRoleApply().should('be.visible').click({force:true});
+Cypress.Commands.add("ApplierSelectingExperience",(experience,duration,designation)=>{
+  roleCompObject.GetExperienceButton(experience).scrollIntoView().should('be.visible').click({force:true});
+  roleCompObject.GetExperienceDuration(duration).should('be.visible').click({force:true});
+  roleCompObject.GetApplierRoleDesignation(designation).should('be.visible').click({force:true});
   
 });
 
-Cypress.Commands.add("ApplierSelectingWhenHavingNoExperience",()=>{
- //will implement later
+Cypress.Commands.add("ApplierSelectingSingleOpportunity",(oppType)=>{
+
+  jobOppCompObject.GetDiffOpportunitiesExpand().scrollIntoView().should('be.visible').click({force:true});
+  jobOppCompObject.GetOpportunityType(oppType).should('be.visible').click({force:true});
+ 
+});
+
+Cypress.Commands.add("ApplierSelectingSingleEngagment",(EngageType)=>{
+  engageCompObject.GetEngagementTypeExpand().scrollIntoView().should('be.visible').click({force:true});
+  engageCompObject.GetSelectingEngagmentType(EngageType).should('be.visible').click({force:true});
+ 
+});
+
+Cypress.Commands.add("ApplierBackgroundInfo",(SelectBtn,ReferralCode,HearabtJobOption)=>{
+  backCompObject.GetBackgroundButton().scrollIntoView().should('be.visible').click({force:true});
+  backCompObject.Getreferralinput().should('be.visible').click({force:true}).type(ReferralCode);
+  backCompObject.GetHearAboutJob().should('be.visible').click({force:true});
+  backCompObject.GetHearAboutJobOption(HearabtJobOption).click({force:true});
 });

@@ -2,6 +2,20 @@ module.exports={
 firstName:'Dilshan',
 lastName: 'Herath',
 email:'Dilshan991@gmail.com',
-phoneNumer:'6561000055'
-
+phoneNumer:'6561000055',
+legalAge:"Yes",
+SingaResidency:"Yes",
+ApplierExperience:"Yes",
+ExperienceDuration:"Less than 1",
+AppliedRole:"Doctor",
+JobOpp1:"Home Care",
+JobOpp2:"Facility-Based Care",
+JobOpp3:"Covid Assignments",
+JobOpp4:"Interim Care Services",
+EngageType1:"Freelance",
+EngageType2:"Full-Time",
+EngageType3:"Short-Term Contract",
+BackCheckBtn:"No",
+ReferralCode:457822,
+HearAbutJob:"Homage articles"
 }

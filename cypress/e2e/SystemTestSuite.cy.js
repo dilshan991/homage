@@ -11,8 +11,9 @@ describe('Homage system testing suite', () => {
     cy.visit('https://apply.homage.sg/');
     cy.ApplyPageHeaderComponentExecutor();
     cy.ApplierEnteringBasicInfo(appData.firstName,appData.lastName,appData.email,appData.phoneNumer);
-    cy.ApplierSelectingBasicAgeAndResidency();
-    cy.ApplierSelectingWhenHavingExperience();
+    cy.ApplierSelectingBasicAgeAndResidency(appData.legalAge,appData.SingaResidency);
+    cy.ApplierSelectingExperience(appData.ApplierExperience,appData.ExperienceDuration,appData.AppliedRole);
+    cy.ApplierSelectingSingleOpportunity(appData.JobOpp1);
   });
 
 

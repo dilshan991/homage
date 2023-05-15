@@ -20,11 +20,23 @@ describe('Homage components testing suite', () => {
   });
 
   it('Verify selecting applier legal age and residency',()=>{
-    cy.ApplierSelectingBasicAgeAndResidency();
+    cy.ApplierSelectingBasicAgeAndResidency(appData.legalAge,appData.SingaResidency);
   });
 
   it('Verify selecting having healthcare experience',()=>{
-    cy.ApplierSelectingWhenHavingExperience();
+    cy.ApplierSelectingExperience(appData.ApplierExperience,appData.ExperienceDuration,appData.AppliedRole);
+  });
+
+  it('Verify selecting single Job Opportunity',()=>{
+    cy.ApplierSelectingSingleOpportunity(appData.JobOpp1);
+  });
+
+  it('Verify selecting single Engagement Type',()=>{
+    cy.ApplierSelectingSingleEngagment(appData.EngageType1);
+  });
+
+  it('Verify applier entering background check information',()=>{
+    cy.ApplierBackgroundInfo(appData.BackCheckBtn,appData.ReferralCode,appData.HearAbutJob);
   });
 
 });

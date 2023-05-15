@@ -18,20 +18,13 @@ class BasicComponentObjects{
         return cy.xpath("//*[@id='phone']",{timeout:7000});
     }
 
-    GetLegalAgeYesButton(){
-        return cy.xpath("//*[@class='cpf-loc-label legalAge']/div/button[contains(text(),'Yes')]",{timeout:7000});
+    GetLegalAgeButton(AgeCheck){
+        return cy.xpath("//*[@class='cpf-loc-label legalAge']/div/button[contains(text(),'"+AgeCheck+"')]",{timeout:7000});
     }
 
-    GetLegalAgeNoButton(){
-        return cy.xpath("//*[@class='cpf-loc-label legalAge']/div/button[contains(text(),'No')]",{timeout:7000});
-    }
 
-    GetResideSingaYesButton(){
-        return cy.xpath("//div[@id='countrysg']/button[contains(text(),'Yes')]",{timeout:7000});
-    }
-
-    GetResideSingaNoButton(){
-        return cy.xpath("//div[@id='countrysg']/button[contains(text(),'No')]",{timeout:7000});
+    GetResidecyButton(Residency){
+        return cy.xpath("//div[@id='countrysg']/button[contains(text(),'"+Residency+"')]",{timeout:7000});
     }
 
 

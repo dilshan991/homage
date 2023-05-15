@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "cypress open",
-    "clean:reports":"(if exist cypress\\reports (rmdir /Q /S cypress\\reports)) && mkdir cypress\\reports && mkdir cypress\\reports\\mocha  &&  mkdir cypress\\reports\\mochareports",
+    "clean:reports": "(if exist cypress\\reports (rmdir /Q /S cypress\\reports)) && mkdir cypress\\reports && mkdir cypress\\reports\\mocha  &&  mkdir cypress\\reports\\mochareports",
     "combine-reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/mochareports/report.json",
     "generate-report": "npm run combine-reports && marge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports -- inline",
     "chrome:headless": "npm run clean:reports &&  cypress run -b chrome --headless",
     "chrome:headed": "npm run clean:reports &&  cypress run -b chrome --headed",
     "chrome:headed:mobile": "npm run clean:reports &&  cypress run -b chrome --headed --config viewportWidth=375,viewportHeight=667",
+    "webkit:headless": "npm run clean:reports &&  cypress run -b webkit --headless",
+    "webkit:headed": "npm run clean:reports &&  cypress run -b webkit --headed",
     "edge:headless": "npm run clean:reports &&  cypress run -b edge --headless",
     "edge:headed": "npm run clean:reports &&  cypress run -b edge --headed",
     "firefox:headless": "npm run clean:reports &&  cypress run -b firefox --headless",
@@ -27,6 +29,7 @@
     "mocha": "^10.2.0",
     "mochawesome": "^7.1.3",
     "mochawesome-merge": "^4.3.0",
-    "mochawesome-report-generator": "^6.2.0"
+    "mochawesome-report-generator": "^6.2.0",
+    "playwright-webkit": "^1.33.0"
   }
 }
