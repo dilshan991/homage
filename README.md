@@ -17,15 +17,21 @@ Following command will execute all the tests with headless mode.
 npm run chrome:headless
 npm run edge:headless
 npm run firefox:headless
+npm run webkit:headless
 ```
 If you need to run the tests in headed mode , execute the following command
 ```
 npm run chrome:headed
 npm run edge:headed
 npm run firefox:headed
+npm run chrome:headed:mobile
+npm run webkit:headed
 ```
 If you need to run tests in mobile devices screen size, execute following command
 npm run chrome:headed:mobile
+
+If you need to tested in the safari browser use the experimental webkit 
+npm run webkit:headed
 
 Execute below mentioned command to generate the HTML report 
 ```
